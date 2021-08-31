@@ -1,7 +1,6 @@
 
 
 class espada{
-    
     constructor(arg){
 for(let[id,value]of Object.entries(arg)){
     this[id]=value
@@ -17,13 +16,13 @@ for(let[id,value]of Object.entries(arg)){
 
 
     let data= {
-        ataque:30,
-        diametro: "30 cm",
-        efecto: undefined
+        temperatura:"100°Celsius",
+        LargodeLlama: "30 cm",
+        efecto: "Quemado persistente"
     }
-}
 
-const inst = new espada({ataque:30});
+
+const inst = new espada({ataque:100});
 console.log(inst.atacar())
 
 
@@ -56,38 +55,38 @@ console.log(inst.atacar())
 // }
 // console.log(espada.atacar());
 
-class espada{
+class lanzarfuego{
     constructor(arg){
         for(let [id, value] of Object.entries(arg)){
             this[id] = value;
         }
     }
-    atacar(){
+    atacar2(){
         return this.ataque;
     }
 }
-class espadaHielo extends espada{
+class bocaDeFuego extends lanzarfuego{
     constructor(arg){
         super(arg);
         this.vida = "+30";
-        this.efecto = "Congelado";
-        this.ataque+=10;
+        this.efecto = "Quemado";
+        this.ataque="+50";
     }
-    atacar(){
-        return `${this.ataque} MOD ${this.efecto} y ${this.vida} vida`;
+    atacar2(){
+        return `Nivel de Vida ${this.ataque} Estado: ${this.efecto} y con ${this.vida} vida`;
     }
 }
 
 
-let data = {
-    ataque:30,
-    diametro: "30cm",
-    efecto: undefined
+let data1 = {
+    temperatura:"90°C",
+    LargodeLlama: "100cm",
+    efecto: "Superquemado"
 }
-const inst = new espada(data);
-console.log(inst.atacar());
-console.log(inst);
+const inst2 = new lanzarfuego(data1);
+console.log(inst2.atacar2());
+console.log(inst2);
 
-const instHielo = new espadaHielo(data);
-console.log(instHielo.atacar());
-console.log(instHielo);
+const instFuego = new bocaDeFuego(data1);
+console.log(instFuego.atacar2());
+console.log(instFuego);
